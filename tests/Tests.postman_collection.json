@@ -1,0 +1,725 @@
+{
+	"info": {
+		"_postman_id": "7b3cfcfd-908f-4443-8a37-ea7de60d912f",
+		"name": "Seguros-Cartoes",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Consulta loja de origem",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "client_id",
+						"value": "{{client_id}}",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer {{Authorization}}",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "deviceId",
+						"value": "bc3e566ab0c05837",
+						"type": "text"
+					},
+					{
+						"key": "idPlataforma",
+						"value": "7",
+						"type": "text"
+					},
+					{
+						"key": "marca",
+						"value": "samsung",
+						"type": "text"
+					},
+					{
+						"key": "latitude",
+						"value": "0",
+						"type": "text"
+					},
+					{
+						"key": "longitude",
+						"value": "0",
+						"type": "text"
+					},
+					{
+						"key": "modelo",
+						"value": "SM-G975F",
+						"type": "text"
+					},
+					{
+						"key": "phoneId",
+						"value": "aaaa",
+						"type": "text"
+					},
+					{
+						"key": "userAgent",
+						"value": "Android",
+						"type": "text"
+					},
+					{
+						"key": "select",
+						"value": "delete * from teste",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "{{url_apigee}}/contas/:conta_id/origem",
+					"host": [
+						"{{url_apigee}}"
+					],
+					"path": [
+						"contas",
+						":conta_id",
+						"origem"
+					],
+					"variable": [
+						{
+							"key": "conta_id",
+							"value": "13773130",
+							"type": "string"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Consulta loja de origem -= Token expired",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "client_id",
+								"value": "{{client_id}}",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{Authorization}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "deviceId",
+								"value": "bc3e566ab0c05837",
+								"type": "text"
+							},
+							{
+								"key": "idPlataforma",
+								"value": "7",
+								"type": "text"
+							},
+							{
+								"key": "marca",
+								"value": "samsung",
+								"type": "text"
+							},
+							{
+								"key": "latitude",
+								"value": "0",
+								"type": "text"
+							},
+							{
+								"key": "longitude",
+								"value": "0",
+								"type": "text"
+							},
+							{
+								"key": "modelo",
+								"value": "SM-G975F",
+								"type": "text"
+							},
+							{
+								"key": "phoneId",
+								"value": "aaaa",
+								"type": "text"
+							},
+							{
+								"key": "userAgent",
+								"value": "Android",
+								"type": "text"
+							},
+							{
+								"key": "select",
+								"value": "delete * from teste",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "{{url_apigee}}/api/loja/v1/contas/:conta_id/origem",
+							"host": [
+								"{{url_apigee}}"
+							],
+							"path": [
+								"api",
+								"loja",
+								"v1",
+								"contas",
+								":conta_id",
+								"origem"
+							],
+							"variable": [
+								{
+									"key": "conta_id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"status": "Unauthorized",
+					"code": 401,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Thu, 10 Dec 2020 20:00:57 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json;charset=UTF-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "35"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Server",
+							"value": "nginx/1.19.1"
+						},
+						{
+							"key": "Via",
+							"value": "kong/0.13.1"
+						},
+						{
+							"key": "X-Kong-Proxy-Latency",
+							"value": "5"
+						},
+						{
+							"key": "X-Kong-Upstream-Latency",
+							"value": "5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Access Token expired!\"\n}"
+				},
+				{
+					"name": "Consulta loja de origem",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "client_id",
+								"value": "{{client_id}}",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{Authorization}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "deviceId",
+								"value": "bc3e566ab0c05837",
+								"type": "text"
+							},
+							{
+								"key": "idPlataforma",
+								"value": "7",
+								"type": "text"
+							},
+							{
+								"key": "marca",
+								"value": "samsung",
+								"type": "text"
+							},
+							{
+								"key": "latitude",
+								"value": "0",
+								"type": "text"
+							},
+							{
+								"key": "longitude",
+								"value": "0",
+								"type": "text"
+							},
+							{
+								"key": "modelo",
+								"value": "SM-G975F",
+								"type": "text"
+							},
+							{
+								"key": "phoneId",
+								"value": "aaaa",
+								"type": "text"
+							},
+							{
+								"key": "userAgent",
+								"value": "Android",
+								"type": "text"
+							},
+							{
+								"key": "select",
+								"value": "delete * from teste",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "{{url_apigee}}/api/loja/v1/contas/:conta_id/origem",
+							"host": [
+								"{{url_apigee}}"
+							],
+							"path": [
+								"api",
+								"loja",
+								"v1",
+								"contas",
+								":conta_id",
+								"origem"
+							],
+							"variable": [
+								{
+									"key": "conta_id",
+									"value": "154"
+								}
+							]
+						}
+					},
+					"status": "Forbidden",
+					"code": 403,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Thu, 10 Dec 2020 18:33:01 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json;charset=UTF-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "gzip"
+						},
+						{
+							"key": "Server",
+							"value": "nginx/1.19.1"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						},
+						{
+							"key": "Via",
+							"value": "kong/0.13.1"
+						},
+						{
+							"key": "X-Kong-Proxy-Latency",
+							"value": "0"
+						},
+						{
+							"key": "X-Kong-Upstream-Latency",
+							"value": "6"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Not allowed to access this resource\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Consulta Produtos",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "client_id",
+						"value": "{{client_id}}",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer {{Authorization}}",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "deviceId",
+						"value": "bc3e566ab0c05837",
+						"type": "text"
+					},
+					{
+						"key": "idPlataforma",
+						"value": "7",
+						"type": "text"
+					},
+					{
+						"key": "marca",
+						"value": "samsung",
+						"type": "text"
+					},
+					{
+						"key": "latitude",
+						"value": "0",
+						"type": "text"
+					},
+					{
+						"key": "longitude",
+						"value": "0",
+						"type": "text"
+					},
+					{
+						"key": "modelo",
+						"value": "SM-G975F",
+						"type": "text"
+					},
+					{
+						"key": "phoneId",
+						"value": "aaaa",
+						"type": "text"
+					},
+					{
+						"key": "userAgent",
+						"value": "symbian",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{url_apigee}}/clientes/:cpf_id/estabelecimento/:store_id/produtosElegiveis?DataNascimento=1968-12-10&TipoCartaoCliente=4&TipoTitularidadeCliente=1&IdEmissor=73&codigoCanalVenda=3&api_key=pernambucanas%25253Apernambucanas",
+					"host": [
+						"{{url_apigee}}"
+					],
+					"path": [
+						"clientes",
+						":cpf_id",
+						"estabelecimento",
+						":store_id",
+						"produtosElegiveis"
+					],
+					"query": [
+						{
+							"key": "DataNascimento",
+							"value": "1968-12-10"
+						},
+						{
+							"key": "TipoCartaoCliente",
+							"value": "4"
+						},
+						{
+							"key": "TipoTitularidadeCliente",
+							"value": "1"
+						},
+						{
+							"key": "IdEmissor",
+							"value": "73"
+						},
+						{
+							"key": "codigoCanalVenda",
+							"value": "3"
+						},
+						{
+							"key": "api_key",
+							"value": "pernambucanas%25253Apernambucanas"
+						},
+						{
+							"key": "sql",
+							"value": "update * from teste",
+							"disabled": true
+						}
+					],
+					"variable": [
+						{
+							"key": "cpf_id",
+							"value": "35632264823"
+						},
+						{
+							"key": "store_id",
+							"value": "{{store_id}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Adesao",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "client_id",
+						"value": "{{client_id}}",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer {{Authorization}}",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "deviceId",
+						"value": "bc3e566ab0c05837",
+						"type": "text"
+					},
+					{
+						"key": "idPlataforma",
+						"value": "7",
+						"type": "text"
+					},
+					{
+						"key": "marca",
+						"value": "samsung",
+						"type": "text"
+					},
+					{
+						"key": "latitude",
+						"value": "0",
+						"type": "text"
+					},
+					{
+						"key": "longitude",
+						"value": "0",
+						"type": "text"
+					},
+					{
+						"key": "modelo",
+						"value": "SM-G975F",
+						"type": "text"
+					},
+					{
+						"key": "phoneId",
+						"value": "aaaa",
+						"type": "text"
+					},
+					{
+						"key": "userAgent",
+						"value": "Android",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"codigoCanalVenda\":3,\"cliente\":{\"cpfcnpj\":\"08760509848\",\"nome\":\"CICERO ABDOM JUNIOR\",\"dataNascimento\":\"1968-12-10\",\"tipoCliente\":\"ClienteComCartao\",\"email\":\"gisleine.abdom@gmail.com\",\"endereco\":{\"logradouro\":\"Rua Assungui\",\"numero\":\"81\",\"complemento\":\"-\",\"bairro\":\"Vila Gumercindo\",\"municipio\":\"São Paulo\",\"uf\":\"SP\",\"cep\":\"04131000\"},\"tipoTitularidade\":\"Titular\",\"telefoneCelular\":{\"ddd\":\"11\",\"numero\":\"981728312\"},\"numeroConta\":\"13773130\",\"sexoCliente\":\"M\",\"estadoCivil\":\"Solteiro\"},\"CodigoLoja\":\"018\",\"codigoPlano\":\"06\",\"CodigoProduto\":\"1037\",\"DataEmissao\":\"2020-11-06\",\"DadosAdesao\":{\"conteudo\":\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAVcAAAAjCAYAAAAg9Ul7AAADqUlEQVR42u2d7W6sMAxE8/4v7fu3uuqCPR6H0D1HqtQWNuTLg2OCdy0AAAAAAAAAAAAAAAAAeC1xc+z/n+o58cu5lXpEoW6RaGvl/KvrRKMPf34+Ej9Keytjd9fv0ezLuzFcyePZsbhrU7fPA9mArLBWDC+Ec1RxjcSxSr2jaNxr5QW483n1JtNtqyquURgTZY5diWv2Zui6gQOMiGtHVK6M1GWYVY9H9Z5OFdeK8F2JlesGqc6x7LEYmtOIK4yGA8IsKhkjXca/q8tapzieJq7u8QixPdkxnBDXSt8grrBVXCvL5jAb82niOhlzdYcF3iiuld8rY+EQV2KuMCKuv02y6jmKAeO55g19GfulKnZPiGvnmniusEVY1TvyVCig46F8a1jA6bm6xVUZw+rNGXGF471Wl5AohhmiEfBAKy9QV/1SHY/uTXi3uH5qE+IKj4lrNIyz6vXE8onrN23FWqu/FUsZj+oWPJdYdkUdcYVHhDW7PM8s/zqCmK3faS8RuDaiK4aubvLverjdkI0irmq4SO1zHmgBAAAAAAAAAAAAAAAAAAAAAADAG6js56x8prOHUqlnpp3ZcittWs06V3N/XrWrct5kMukdeyiVOZOdG47EPlf9ruazcJejtqs7rrH6icq7ZW8T1oqBdd5iyYp25v+VTnIkp556c+pN4tp5Q8o5qdXrVd68C3E+fSpbTcyd+TvEPlLaFWLZd9dwzJkoztvtwqoapTqQHS8i1lyi4apwqe/8q0mXu+Ka6Y9um9bAhA7jPO3WNczH4+FyVEdCGbtuXapOwdR8HKv0LnGdnMBdwVD66RRxvesPd/t3iquzPMTV/3m1LHXF9afEVXlXuptqThXXbMx1UlxVYXuLuLrCAhXjcn2RoTL3lHBPmK4zLY5KboeqU+MsuxtWfKXn6k6S/GbP9SlxddTh07J84iGCGhao3jCns4Y5vgvLWY4aFghzW6fK/pR86GvCAm7P1fFVJjvFtSsCJ4mraiiO7FqOkNOkuMZh/58udzKJ/XSCfFlc//oDrRgUpDsv15lTdFpc1+olkz7xgVZ3Lu/OsVrtN6d47xJtZ11cK+cxTtuKVfVoY9gQd23FcnpIjnhXN3Y1/QBBbbPrK3ImRUhpW9dL7863GGznRNnb97o+8RKBEjKobODPHD/hJQL38vOpZNKu5XZ13iphhmiOmcNmQmibq5zVsLGpOd0JCznKBtgTN/rjfRYvLBsAENev7TPGAwDvCwB+4x+cUHTS4HpswAAAAABJRU5ErkJggg==\",\"extensao\":\"png\"},\"InicioVigencia\":\"2020-11-06\",\"insuranceTitle\":\"Bolsa Protegida - Plano unico\",\"numeroMeses\":60,\"objetoSeguro\":{\"tipoObjeto\":\"Cartao\",\"inicioVigencia\":\"2020-11-06\",\"terminoVigencia\":\"2025-11-06\",\"premioLiquido\":7.99,\"premioTotal\":7.99},\"participacoes\":[{\"codigo\":\"800\",\"tipoParticipacao\":\"Operador\"}],\"terminoVigencia\":\"2025-11-06\",\"valorLiquido\":7.99,\"valorPremio\":7.99}"
+				},
+				"url": {
+					"raw": "{{url_apigee}}/seguros/adesao",
+					"host": [
+						"{{url_apigee}}"
+					],
+					"path": [
+						"seguros",
+						"adesao"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Assinado digitalmente",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "client_id",
+						"value": "{{client_id}}",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer {{Authorization}}",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "deviceId",
+						"value": "bc3e566ab0c05837",
+						"type": "text"
+					},
+					{
+						"key": "idPlataforma",
+						"value": "7",
+						"type": "text"
+					},
+					{
+						"key": "marca",
+						"value": "samsung",
+						"type": "text"
+					},
+					{
+						"key": "latitude",
+						"value": "0",
+						"type": "text"
+					},
+					{
+						"key": "longitude",
+						"value": "0",
+						"type": "text"
+					},
+					{
+						"key": "modelo",
+						"value": "SM-G975F",
+						"type": "text"
+					},
+					{
+						"key": "phoneId",
+						"value": "aaaa",
+						"type": "text"
+					},
+					{
+						"key": "userAgent",
+						"value": "Android",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"text\":\"ASSINADO ELETRONICAMENTE \\n CICERO ABDOM JUNIOR - 06/11/2020 16:43:49\"}"
+				},
+				"url": {
+					"raw": "{{url_apigee}}/api/digital-text/v1/convert-text-image",
+					"host": [
+						"{{url_apigee}}"
+					],
+					"path": [
+						"api",
+						"digital-text",
+						"v1",
+						"convert-text-image"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					"pm.iterationData.get(\"code\");",
+					"pm.iterationData.get(\"env\");",
+					"pm.iterationData.get(\"client_id\");",
+					"pm.iterationData.get(\"file\");",
+					"pm.iterationData.get(\"message\");",
+					"pm.iterationData.get(\"skip\");",
+					"",
+					"var skips = pm.variables.get(\"skip\").split(',');",
+					"//skips = skips.split(',');",
+					"",
+					"pm.variables.set(\"skips\",skips);",
+					"",
+					"const tokenRequestBody = {",
+					"        appVersion: \"4.10.0-DEBUG\",",
+					"        celular: {",
+					"            geolocalizacao: {",
+					"                latitude: \"0\",",
+					"                longitude: \"0\"",
+					"            },",
+					"            marca: \"samsung\",",
+					"            modelo: \"SM-G975F\"",
+					"        },",
+					"        deviceId: \"4e1ebab49851b813\",",
+					"        idChave: 2,",
+					"        idPlataforma: 7,",
+					"        login: \"aX2WPc878+5Y+EYnCY1bxKDlT4dYMhf2fQbt78TyjUFV91tVN2fkmz7ggulPcxN9ZO0wfGlUyXEAToBYq/VzgTlBCHZtDYJ5T6h5A/VC1QxlfWapwQ5DzlFq0synhlH/K3TVGSC6tHu9GhIqlSIKqC74m8qYPxaS8kBK1SIXJgYGDdYKbulGZHAf3RF9yBwRRDAzp6XtcSqVv/JUWQp1LQAcOhNNhIRxfHUTqckaQG03v6MMCrS/4qJn/mWxWnhTZKmS/mVjqolhAuK5Cm3N8seRsKiRBVa/Oxz8vWQFtEygTGhrDabbWn+jtd2ENyHTVJjxsKwrLZn4jR2XcdTl8Q==\",",
+					"        phoneId: \"4e1ebab49851b813\",",
+					"        requestToken: \"TkWrUrtDViGufkwWlDRsUYyX1AhNExwiFLIrRzJavJTNcKxoOs9kBvf1CeW/Y/RHpdE1MeZ7iT3F\\nzprQWlCzPLEujL9vyOvWBF2ADwwKO0txJvEt1cHUFtl0rdfTHgHZVlHB1IcQYaT1baSyaOzp+maN\\nHI3E+RLdNQjfTnzkZw7uiAk1sCpVh3ewtfo7S2HovlJwp3t1ZWiv6XnMjijjrTv5Va58KDlbUOHX\\ng3b4znlTn66sQ1RzP6XlCQfoysSNgKOCwQgHKhaDAkSdNdhXKI7LxeeINogWNWssjn6Nu1GcGYhs\\nyUJGL73b2Nc2k1fIR7fu/8LH0kxaUbjqbxpl0A==\\n\",",
+					"        senha: \"gNULg/hVTFooRUQ0/ukZq3PN6a+uba38V9tifqORdzy3ZJVy5CUeXIpon+dcZBPikfKE4tlK2kJSnnpw1PviIcdgV9xO3W413I0IfC+iyw0HUHaaK2ItBXFTR46s24k7C5F0R9ZXfdVfuNzKHNxK62bKMXUk3J/atOAEugPSHsZuhjymE9ymIbeaE5NSCjexRTGJTC/H67OVpvHDmdA0dVLzCVzncLcL5IODojRT5Gu748rtKHXeEVX/8lznB9Oi2CKC1tbEKbimQCfQDJD+1TLYNVZujUKlrAED89dbePL7sMiC/7EjlSqlW96zQ0xh7fjYAox9+d0mzPtFG7BBgw==\",",
+					"        userAgent: \"Android\"",
+					"    }",
+					"    ",
+					"    pm.sendRequest({",
+					"        url: pm.environment.get(\"url_token_dev\"),",
+					"        method: 'POST',",
+					"        header: {",
+					"            'content-type': 'application/json',",
+					"            'client_id': pm.environment.get(\"client_id\")",
+					"        },",
+					"        body: {",
+					"            mode: 'raw',",
+					"            raw: JSON.stringify(tokenRequestBody)",
+					"        }",
+					"    }, (err, res) => {",
+					"                pm.environment.set(\"Authorization\", res.json().token.accessToken);",
+					"                pm.environment.set(\"idUsuario\", res.json().idUsuario);",
+					"                pm.environment.set(\"refreshToken\", res.json().token.refreshToken);",
+					"        }",
+					"    );"
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					"var skips = pm.variables.get(\"skips\")",
+					"if(skips.indexOf(pm.info.requestName) >= 0 ){",
+					"    console.log(\"Skipped\")",
+					"}",
+					"else{",
+					"    pm.test(pm.variables.get(\"message\"),function(){",
+					"        pm.response.to.have.status(pm.variables.get(\"code\"));",
+					"    })",
+					"}",
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "url_apigee",
+			"value": "\thttps://pefisa-dev.apigee.net/seguros"
+		},
+		{
+			"key": "env",
+			"value": "dev"
+		}
+	]
+}

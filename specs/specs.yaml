@@ -1,0 +1,608 @@
+openapi: "3.0.1"
+info:
+  version: '1.0.0'
+  title: Seguro Cartoes
+  description:
+    Especificações da API de seguros PNB.
+servers:
+  - description: "dev"
+    url: "https://pefisa-dev.apigee.net/seguros"
+  - description: "homolog"
+    url: "https://pefisa-hml.apigee.net/seguros"
+  - description: "Prodution"
+    url: "https://pefisa-prd.apigee.net/seguros"
+
+security:
+  - BearerAuth: []
+
+paths:
+  /clientes/{cliente_id}/estabelecimento/{estabelecimento_id}/produtosElegiveis:
+    get: 
+      description: Get information from client/product to select insurances
+      operationId: ElegibleProduct
+      servers:
+       - url: /ssa/api
+      parameters:
+        - $ref: "#/components/parameters/cliente_id" 
+        - $ref: "#/components/parameters/estabelecimento_id"
+        - $ref: "#/components/parameters/Client_id_H"
+        - $ref: "#/components/parameters/DeviceId"
+        - $ref: "#/components/parameters/IdPlataforma"
+        - $ref: "#/components/parameters/Marca"
+        - $ref: "#/components/parameters/Latitude"
+        - $ref: "#/components/parameters/Longitude"
+        - $ref: "#/components/parameters/PhoneId"
+        - $ref: "#/components/parameters/UserAgent"
+        - $ref: "#/components/parameters/DataNascimento"
+        - $ref: "#/components/parameters/TipoCartaoCliente"
+        - $ref: "#/components/parameters/TipoTitularidadeCliente"
+        - $ref: "#/components/parameters/IdEmissor"
+        - $ref: "#/components/parameters/CodigoCanalVenda"
+        - $ref: "#/components/parameters/Api_key"
+      responses:
+        '200':
+          $ref: "#/components/responses/ConsultaProdutos"
+        '401':
+          $ref: "#/components/responses/401TokenExpired"
+        '400':
+          $ref: "#/components/responses/400ConsultaProduto"
+        '404':
+          $ref: "#/components/responses/400ConsultaProduto"
+  /contas/{conta_id}/origem:
+    get:
+      description: The store where costumer created the card
+      operationId: StoreOrigin
+      servers:
+       - url: /api/loja/v1
+      parameters:
+        - $ref: "#/components/parameters/conta_id"
+        - $ref: "#/components/parameters/Client_id_H"
+        - $ref: "#/components/parameters/DeviceId"
+        - $ref: "#/components/parameters/IdPlataforma"
+        - $ref: "#/components/parameters/Marca"
+        - $ref: "#/components/parameters/Latitude"
+        - $ref: "#/components/parameters/Longitude"
+        - $ref: "#/components/parameters/PhoneId"
+        - $ref: "#/components/parameters/UserAgent"
+      responses:
+        '200':
+          $ref: "#/components/responses/ConsultaLoja"
+        '401':
+          $ref: "#/components/responses/401TokenExpired"
+        '400':
+          $ref: "#/components/responses/400ConsultaProduto"
+        '404':
+          $ref: "#/components/responses/400ConsultaProduto"
+  /convert-text-image:
+    post:
+      description: Generate signature
+      operationId: ConvertTextImage
+      servers:
+       - url: /api/digital-text/v1
+      parameters:
+        - $ref: "#/components/parameters/Client_id_H"
+        - $ref: "#/components/parameters/DeviceId"
+        - $ref: "#/components/parameters/IdPlataforma"
+        - $ref: "#/components/parameters/Marca"
+        - $ref: "#/components/parameters/Latitude"
+        - $ref: "#/components/parameters/Longitude"
+        - $ref: "#/components/parameters/PhoneId"
+        - $ref: "#/components/parameters/UserAgent"
+      requestBody:
+        $ref : "#/components/requestBodies/RequestTextConvert"
+      responses:
+        '200':
+          $ref: "#/components/responses/ConvertTextImage"
+        '401':
+          $ref: "#/components/responses/401TokenExpired"
+  /seguros/adesao:
+    servers:
+       - url: /ssa/api
+    post:
+      description: Information to register costumer on conductor
+      operationId: RegisterInConductor
+      parameters:
+        - $ref: "#/components/parameters/Client_id_H"
+        - $ref: "#/components/parameters/DeviceId"
+        - $ref: "#/components/parameters/IdPlataforma"
+        - $ref: "#/components/parameters/Marca"
+        - $ref: "#/components/parameters/Latitude"
+        - $ref: "#/components/parameters/Longitude"
+        - $ref: "#/components/parameters/PhoneId"
+        - $ref: "#/components/parameters/UserAgent"
+      requestBody:
+        $ref: '#/components/requestBodies/RequestAdesao'
+      responses:
+        '200':
+          $ref: '#/components/responses/ResponseAdesao'
+        '401':
+          $ref: "#/components/responses/401TokenExpired"
+components:
+  securitySchemes:
+    BearerAuth:
+      type: http 
+      # in: header
+      scheme: bearer
+      bearerFormat: JWT
+      
+  responses:
+    200Generic:
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: object
+    401TokenExpired:
+      description: "Access Token expired"
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+    404NotFound:
+      description: "Not Found"
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              timestamp:
+                type: string
+              status:
+                type: integer
+              error:
+                type: string
+              message:
+                type: string
+              path:
+                type: string
+    400ConsultaProduto:
+      description: "Bad Request"
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              isSucesso:
+                type: boolean
+              erros:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    codigo:
+                      type: integer
+                      example: 0
+                    mensagem:
+                      type: string
+                      example: "Campo com informação inválida"
+    ConvertTextImage:
+      description: "get text and convert to image"
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              imageBase64:
+                type:  string
+                example: "data:image/png;base64;fioj189js98j87j29j677h7hdh17h2879h7hAHSD891h727jh"
+    ConsultaLoja:
+      description: "obtain customer account source store"
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              codigoLojaOrigem:
+                type: string
+                example: "08122"
+    ConsultaProdutos:
+      description: "Return elegible products"
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              isSucesso:
+                type: boolean
+                example: true
+              resultado:
+                type: object
+                properties:
+                  agrupamentosProduto:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        nome:
+                          type: string
+                          example: seguros
+                        ordemApresentacao:
+                          type: integer
+                          example: 1
+                        textoAceite:
+                          type: string
+                          example: "Declaro que fui ..."
+                        listaProdutos:
+                          type: array
+                          items:
+                            type: object
+                            properties:
+                                codigo: 
+                                  type: string
+                                  example: "1101"
+                                nome:
+                                  type: string
+                                  example: "Nome de Seguro"
+                                descricao:
+                                  type: string
+                                  example: "Descrição do seguro"
+                                IdEmissor:
+                                  type: integer
+                                  example: 1
+                                idSegurandora:
+                                  type: integer
+                                  example: 2
+                                seguroMensal:
+                                  type: boolean
+                                  example: true
+                                permitePagamentoAntecipado:
+                                  type: boolean
+                                  example: false
+                                possuiItem:
+                                  type: integer
+                                  example: 0
+                                numeroMaximoItens:
+                                  type: integer
+                                  example: 0
+                                numeroMinimoItens:
+                                  type: integer
+                                  example: 0 
+                                excluido:
+                                  type: boolean
+                                  example: false
+                                planos:
+                                  type: array
+                                  items:
+                                    type: object
+                                    properties:
+                                        codigoPlano:
+                                          type: string
+                                          example: "08"
+                                        nomePlano: 
+                                          type: string
+                                          example: "Plano Único"
+                                        nomeSeguroPlano:
+                                          type: string
+                                          example: "Mircrosseguro"
+                                        descricaoPlano:
+                                          type: string
+                                          example: "É um microseguro.."
+                                        descricaoCompletaPlano:
+                                          type: string
+                                          example: "é um microsseguro..."
+                                        riscosExcluidos:
+                                          type: string
+                                          example: "é um microsseguro..."
+                                        termoAdesao:
+                                          type: string
+                                          example: "Microsseguro..."
+                                        idProdutoPlano:
+                                          type: integer
+                                          example: 0
+                                        numeroMeses:
+                                          type: integer
+                                          example: 120
+                                        qtdTitulosCapitalizacao:
+                                          type: integer
+                                          example: 1
+                                        cobrancaRepasse: 
+                                          type: integer
+                                          example: 0
+                                        tipoObjeto:
+                                          type: string
+                                          example: "Cartão"
+                                        extratoIncondicional:
+                                          type: boolean
+                                          example: false
+                                        debitoIncondicional:
+                                          type: boolean
+                                          example: false
+                                        valPlano:
+                                          type: number
+                                          example: 22.99
+                                        aceitaLancamentoNaAdesao:
+                                          type: boolean
+                                          example: false
+                                        aceitaItem:
+                                          type: boolean
+                                          example: false
+                                        flObtemValorNoPlano:
+                                          type: boolean
+                                          example: false
+                                devolucaoCancelamentoIntegral:
+                                  type: boolean
+                                  example: false
+                                devolucaoCancelamentoProRata:
+                                  type: boolean
+                                  example: false
+                                devolucaoCancelamentoMesesFuturos:
+                                  type: boolean
+                                  example: false
+                                idAgrupamentoProduto:
+                                  type: integer
+                                  example: 1
+                                postagemNoCorte:
+                                  type: boolean
+                                  example: false
+                                aceitaParcelamento:
+                                  type: boolean
+                                  example: false
+                                permitePrimeiraParcelaPaga:
+                                  type: boolean
+                                  example: false
+                                permiteResponsavelFinanceiro:
+                                  type: boolean
+                                  example: false
+                                permiteMultiplasAdesoes:
+                                  type: boolean
+                                  example: false
+                                validaProdutoVenda:
+                                  type: boolean
+                                  example: false
+                                validaNumeroSerieProdutoVenda:
+                                  type: boolean
+                                  example: false
+                        id:
+                          type: integer
+                          example: 1
+    ResponseAdesao:
+      description: "responseAdesao"
+      content:
+        application/json:
+          schema:
+            type: object
+  requestBodies:
+    RequestTextConvert:
+      description: "Request Text Convert"
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              text:
+                type: string
+                example: "ASSINADO ELETRONICAMENTE ..."
+    RequestAdesao:
+      description: "requestAdesao"
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              codigoCanalVenda:
+                type: integer
+                example: 3
+              cliente:
+                type: object
+                properties:
+                  cpfcnpj:
+                    type: integer
+                  nome:
+                    type: string
+                  dataNascimento:
+                    type: integer
+                  tipoCliente:
+                    type: integer
+                  email:
+                    type: integer
+                  endereco:
+                    type : object
+                    properties:
+                      logradouro:
+                        type: string
+                      numero:
+                        type: integer
+                      complemento:
+                        type: string
+                      bairro:
+                        type: string
+                      municipio:
+                        type: string
+                      uf:
+                        type: string
+                      cep:
+                        type: integer
+                  tipoTitularidade:
+                    type: string
+                  telefoneCelular:
+                    type: object
+                    properties:
+                      ddd:
+                        type: integer
+                      numero:
+                        type: integer
+                  numeroConta:
+                    type: integer
+                  sexoCliente:
+                    type: string
+                  estadoCivil:
+                    type: string
+              CodigoLoja:
+                type: string
+                example: '018'
+              codigoPlano:
+                type: string
+                example: '06'
+              CodigoProduto:
+                type: string
+                example: '1037'
+              DataEmissao:
+                type: string
+                example: '2020-11-06'
+              DadosAdesao:
+                type: object
+                properties:
+                  conteudo:
+                    type: string
+                    example: "data:image/png;base64,muiasn91m28mams83jhq2389sj7834=="
+                  extensao:
+                    type: string
+                    example: "png"
+              InicioVigencia:
+                type: string
+                example: '2020-11-06'
+              insuranceTitle:
+                type: string
+                example: 'Bolsa Protegida...'
+              numeroMeses:
+                type: integer
+                example: 60
+              objetoSeguro:
+                type: object
+                properties:
+                  tipoObjeto:
+                    type: string
+                  inicioVigencia:
+                    type: string
+                  terminoVicencia:
+                    type: string
+                  premioLiquido:
+                    type: integer
+                  premioTotal:
+                    type: integer
+              participacoes:
+                type: array
+                items:
+                  type: object  
+                  properties:
+                    codigo:
+                      type: string
+                      example: "800"
+                    tipoParticipacao:
+                      type: string
+                      example: "Operador"
+              terminoVigencia:
+                type: string
+                example: '2025-11-06'
+              valorLiquido:
+                type: number
+                example: 7.99
+              valorPremio:
+                type: number
+                example: 7.99 
+  parameters:
+    DeviceId:
+      name: "deviceId"
+      in: header
+      schema:
+        type: string
+        example: "bc13cba33123"
+    cliente_id:
+      name: "cliente_id"
+      in: path
+      required: true
+      schema:
+        type: integer
+        example: 12345
+    Client_id_H:
+      name: "client_id"
+      in: header
+      required: true
+      schema:
+        type: integer
+        example: "9480147719148e84e398d292c90b2b88"
+    estabelecimento_id:
+      name: "estabelecimento_id"
+      in: path
+      required: true
+      schema:
+        type: integer
+        example: 65466
+    conta_id:
+      name: "conta_id"
+      in: path
+      required: true
+      schema:
+        type: integer
+        example: 65466
+    IdPlataforma:
+      name: "idPlataforma"
+      in: header 
+      schema:
+        type: integer
+        example: 7
+    Marca:
+      name: "marca"
+      in: header 
+      schema:
+        type: string
+        example: 'samsung'
+    Latitude:
+      name: "latitude"
+      in: header
+      schema:
+        type: integer
+        example: 0
+    Longitude:
+      name: "longitude"
+      in: header
+      schema:
+        type: integer
+        example: 0
+    Modelo:
+      name: "modelo"
+      in: header 
+      schema:
+        type: string
+        example: 'SM-G666'
+    PhoneId:
+      name: "phoneId"
+      in: header
+      schema:
+        type: string
+        example: 'abcj'
+    UserAgent:
+      name: "userAgent"
+      in: header
+      schema: 
+        type: string
+        example: "Android"
+    Api_key:
+      name: "api_key"
+      in: query
+      schema:
+        type: string
+        example: "pernambucanas%25253Apernambucanas"
+    CodigoCanalVenda:
+      name: "codigoCanalVenda"
+      in: query
+      schema:
+        type: integer
+        example: 4
+    IdEmissor:
+      name: "IdEmissor"
+      in: query
+      schema:
+        type: integer
+        example: 73
+    TipoTitularidadeCliente:
+      name: "TipoTitularidadeCliente"
+      in: query
+      schema:
+        type: integer
+        example: 1
+    TipoCartaoCliente:
+      name: "TipoCartaoCliente"
+      in: query
+      schema:
+        type: integer
+        example: 4
+    DataNascimento:
+      name: "DataNascimento"
+      in: query
+      schema:
+        type: string
+        example: 2020-05-05

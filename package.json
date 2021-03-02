@@ -1,0 +1,44 @@
+{
+	"name": "OAuth",
+	"description": "Sample maven-archetype-apigee-proxy API Proxy",
+	"version": "1.0.0",
+	"repository": {
+		"type": "git",
+		"url": ""
+	},
+	"scripts": {
+		"apigeelint": "apigeelint -s target/apiproxy -f table.js",
+		"jshint": "jshint target/apiproxy/resources/jsc/*.js",
+		"mocha": "mocha target/tests/unit",
+		"yaml-test": "yaml-validator target/org/specs.yaml -w",
+		"apickli": "cucumber-js target/test/integration/features",
+		"newman": "newman run target/tests/*.postman_collection.json $ENV $DATAS",
+		"coverage": "gulp test"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "",
+	"dependencies": {
+		"apickli": "^2.3.3",
+		"apigeelint": "^2.0.0",
+		"atob": "^2.0.3",
+		"bluebird": "^3.3.5",
+		"chai": "^3",
+		"chai-fuzzy": "^1",
+		"cucumber": "^1.0.0",
+		"eslint": "^7.12.1",
+		"expect.js": "^0.3.1",
+		"gulp": "^4.0.2",
+		"gulp-istanbul": "^1.1.3",
+		"gulp-mocha": "^7.0.2",
+		"istanbul": "^0.4.5",
+		"maven": "^5.0.0",
+		"mocha": "^8.2.1",
+		"newman": "^5.2.1",
+		"prettyjson": "^1.1.3",
+		"randexp": "^0.5.3",
+		"sinon": "^1",
+		"uuidv4": "^6.2.6",
+		"yaml-validator": "^3.0.0"
+	}
+}

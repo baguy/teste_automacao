@@ -1,0 +1,19 @@
+{
+    "appVersion": "4.14.0-DEBUG",
+    "celular": {
+        "geolocalizacao": {
+            "latitude": "0",
+            "longitude": "0"
+        },
+        "marca": "samsung",
+        "modelo": "SM-G975F"
+    },
+    "deviceId": "4e1ebab49851b813",
+    "idChave": 2,
+    "idPlataforma": 7,
+    "login": "aX2WPc878+5Y+EYnCY1bxKDlT4dYMhf2fQbt78TyjUFV91tVN2fkmz7ggulPcxN9ZO0wfGlUyXEAToBYq/VzgTlBCHZtDYJ5T6h5A/VC1QxlfWapwQ5DzlFq0synhlH/K3TVGSC6tHu9GhIqlSIKqC74m8qYPxaS8kBK1SIXJgYGDdYKbulGZHAf3RF9yBwRRDAzp6XtcSqVv/JUWQp1LQAcOhNNhIRxfHUTqckaQG03v6MMCrS/4qJn/mWxWnhTZKmS/mVjqolhAuK5Cm3N8seRsKiRBVa/Oxz8vWQFtEygTGhrDabbWn+jtd2ENyHTVJjxsKwrLZn4jR2XcdTl8Q==",
+    "phoneId": "4e1ebab49851b813",
+    "requestToken": "TkWrUrtDViGufkwWlDRsUYyX1AhNExwiFLIrRzJavJTNcKxoOs9kBvf1CeW/Y/RHpdE1MeZ7iT3F\nzprQWlCzPLEujL9vyOvWBF2ADwwKO0txJvEt1cHUFtl0rdfTHgHZVlHB1IcQYaT1baSyaOzp+maN\nHI3E+RLdNQjfTnzkZw7uiAk1sCpVh3ewtfo7S2HovlJwp3t1ZWiv6XnMjijjrTv5Va58KDlbUOHX\ng3b4znlTn66sQ1RzP6XlCQfoysSNgKOCwQgHKhaDAkSdNdhXKI7LxeeINogWNWssjn6Nu1GcGYhs\nyUJGL73b2Nc2k1fIR7fu/8LH0kxaUbjqbxpl0A==\n",
+    "senha": "gNULg/hVTFooRUQ0/ukZq3PN6a+uba38V9tifqORdzy3ZJVy5CUeXIpon+dcZBPikfKE4tlK2kJSnnpw1PviIcdgV9xO3W413I0IfC+iyw0HUHaaK2ItBXFTR46s24k7C5F0R9ZXfdVfuNzKHNxK62bKMXUk3J/atOAEugPSHsZuhjymE9ymIbeaE5NSCjexRTGJTC/H67OVpvHDmdA0dVLzCVzncLcL5IODojRT5Gu748rtKHXeEVX/8lznB9Oi2CKC1tbEKbimQCfQDJD+1TLYNVZujUKlrAED89dbePL7sMiC/7EjlSqlW96zQ0xh7fjYAox9+d0mzPtFG7BBgw==",
+    "userAgent": "Android"
+}

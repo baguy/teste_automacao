@@ -1,0 +1,8 @@
+{
+    "ValidRequest": false,
+    "errors": [
+        {
+            "{"code":"400.02.05","message":"Invalid variables in request","errors":["Header Variable, userAgent, is not Android or IOS"]}"
+        }
+    ]
+}
